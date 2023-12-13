@@ -1,7 +1,16 @@
 <?php
 //iniciar sesion
 session_start();
-require_once '../conecction.php';
+include_once 'scripts/connection.php';
+//consultar si el usuario ya esta logueado
+if (isset($_SESSION['user_id'])) {
+    //redireccionar a la pagina de inicio
+    header('Location: ../../home.html');
+}
+//verificar conexion a la base de datos
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
 
 
 //consultar si el metodo es post
