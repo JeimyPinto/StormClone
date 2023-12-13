@@ -2,39 +2,33 @@
 //iniciar sesion
 session_start();
 include_once 'scripts/connection.php';
-//consultar si el usuario ya esta logueado
-if (isset($_SESSION['user_id'])) {
-    //redireccionar a la pagina de inicio
-    header('Location: ../../home.html');
-}
-//verificar conexion a la base de datos
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
 
-
-//consultar si el metodo es post
+//Verificar si hay algo enviado por post
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    //recibir datos
     $email = $_POST['email'];
-    $pass = $_POST['password'];
-    echo "<script>console.log('$email');</script>";
-    echo "<script>console.log('$pass');</script>";
-    //consultar si el usuario existe
-    $sql = "SELECT * FROM usuario WHERE email = '$email' AND pass = '$pass'";
-    $result = $conn->query($sql);
-    //si existe
-    if ($result->num_rows > 0) {
-        //redireccionar a la pagina de inicio
-        header('Location: ../../home.html');
-    } else {
-        //redireccionar a la pagina de login y enviar un mensaje de error por consola
-        echo "<script>console.log('Usuario o contraseña incorrectos');</script>";
-        header('Location: ../../login.html');
+    $password = $_POST['password'];
+
+    //verificar si los campos no estan vacios
+    if (!empty($email) && !empty($password)) {
+        //verificar si el email existe en la base de datos de la tabla usuario
+        $stmt = $conn->prepare('SELECT * FROM usuario WHERE correo_electronico = ?');
+        $stmt->bind_param('s', $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows > 0) {
+            //verificar si el password es correcto
+            $row = $result->fetch_assoc();
+            $password_bd = $row['contrasena'];
+
+            if ($password_bd == $password) {
+                $_SESSION['email'] = $email;
+                header('Location: home.html');
+            } else {
+                echo "La contraseña no coincide";
+            }
+        }
     }
-} else {
-    //redireccionar a la pagina de login
-    header('Location: ../../login.hmtl');
 }
 ?>
 
@@ -44,11 +38,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- import bootstrap por CDN-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="assets/fonts/fontawesome-webfont.eot">
     <!-- favicon import -->
     <link rel="icon" href="assets/images/Storm.png" type="image/x-icon">
+    <link rel="stylesheet" href="./assets/css/login.css">
     <title>STORM GPS</title>
 
 </head>
@@ -72,12 +64,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </div>
         </div>
 
-        <div class="col-6 row text-center ">
+        <div class="signin">
+            <h2>Inicio de sesión</h2>
             <form class="signin" action="" method="post">
-                <h2>Inicio de sesión</h2>
 
                 <div class="input">
-                    <input type="email" placeholder="Correo" name="email" required>
+                    <input class="input1" type="email" placeholder="Correo" name="email" required>
                     <i class="fa-solid fa-envelope"></i>
                 </div>
 

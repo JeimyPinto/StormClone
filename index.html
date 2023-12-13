@@ -2,312 +2,59 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-  <!-- import bottstrap cdn -->
-  <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link href='https://fonts.googleapis.com/css?family=Unica+One' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700' rel='stylesheet' type='text/css'>
-  <title>Storm GPS</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <title>Inicio</title>
 </head>
 
-<body data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
-  <!-- PRE LOADER -->
-
-  <div class="preloader">
-    <div class="sk-spinner sk-spinner-pulse"></div>
-  </div>
-
-  <!-- Navigation Section -->
-
-  <div class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
-        <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-          <span class="icon icon-bar"></span>
-          <span class="icon icon-bar"></span>
-          <span class="icon icon-bar"></span>
-        </button>
-        <a href="" class="navbar-brand">
-          <span><img src="" alt="" width="40px" /> STORM</span>
-          GPS</a>
-      </div>
-
-      <div class="collapse navbar-collapse">
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="#home" class="smoothScroll">Inicio</a></li>
-          <li><a href="#about" class="smoothScroll">Equipo</a></li>
-          <li><a href="#screenshot" class="smoothScroll">Capturas</a></li>
-          <li><a href="#pricing" class="smoothScroll">Precio</a></li>
-          <li><a href="#newsletter" class="smoothScroll">Noticias</a></li>
-          <li> <a href="#" data-toggle="modal" data-target="#modal1">Contacto</a> </li>
-          <li> <a href="login.php">Ingresar</a> </li>
-        </ul>
+<body>
+  <header>
+    <div class="navbar">
+      <div class="logo"><a href="#">STORM GPS</a></div>
+      <ul class="links">
+        <li><a href="index.php">Inicio</a></li>
+        <li><a href="index.php">Nosotros</a></li>
+        <li><a href="index.php">Servicios</a></li>
+        <li><a href="index.php">Contacto</a></li>
+      </ul>
+      <a href="login.php" class="action_btn">Log in</a>
+      <div class="toggle_btn">
+        <i class="fa-solid fa-bars"></i>
       </div>
     </div>
-  </div>
-
-  <!-- Home Section -->
-
-  <section id="home" class="main">
-    <div class="overlay"></div>
-    <div class="container">
-      <div class="row">
-        <div class="wow fadeInUp col-md-6 col-sm-5 col-xs-10 col-xs-offset-1 col-sm-offset-0" data-wow-delay="0.2s">
-          <img src="./assets/images/home-img.png" class="img-responsive" alt="Home" />
-        </div>
-
-        <div class="col-md-6 col-sm-7 col-xs-12">
-          <div class="home-thumb">
-            <h1 class="wow fadeInUp" data-wow-delay="0.6s">Storm GPS</h1>
-            <p class="wow fadeInUp" data-wow-delay="0.8s">
-              Seguridad en cada viaje de sus hijos
-            </p>
-            <a href="#pricing" class="wow fadeInUp section-btn btn btn-success smoothScroll"
-              data-wow-delay="1s">Descargar</a>
-          </div>
-        </div>
+      <div class="dropdown_menu">
+          <li><a href="index.php">Inicio</a></li>
+          <li><a href="index.php">Nosotros</a></li>
+          <li><a href="index.php">Servicios</a></li>
+          <li><a href="index.php">Contacto</a></li>
+          <li><a href="login.php">Log in</a></li>
       </div>
-    </div>
-  </section>
+  </header>
 
+  <main>
+    <section id="hero">
+      <h1>Bienvenidos a Storm GPS</h1>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p>
+    </section>
+  </main>
 
-  <section id="divider">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-offset-2 col-md-8 col-sm-12">
-          <h2 class="wow fadeInUp" data-wow-delay="0.4s">
-            El proyecto del "Prototipo de georreferenciación de rutas de
-            transporte privado para la ciudad de Manizales" tiene como
-            objetivo principal mejorar la seguridad y la eficiencia del
-            transporte escolar privado, brindando a los padres y tutores la
-            capacidad de rastrear en tiempo real la ubicación de sus hijos
-            mientras viajan hacia y desde la escuela en vehículos de
-            transporte escolar privado.
-          </h2>
-          <a href="#screenshot" class="wow fadeInUp section-btn btn btn-success smoothScroll" data-wow-delay="0.8s">Leer
-            más</a>
-        </div>
-      </div>
-    </div>
-  </section>
+  <script>
+    const toggleBtn = document.querySelector('.toggle_btn')
+    const toggleBtnIcon = document.querySelector('.toggle_btn i')
+    const dropDownMenu = document.querySelector('.dropdown_menu')
 
-  <!-- Screenshot Section -->
-
-  <section id="screenshot">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-offset-2 col-md-8 col-sm-12">
-          <div class="section-title">
-            <h1>Capturas</h1>
-            <p class="wow fadeInUp" data-wow-delay="0.8s">
-              Aquí te presentamos algunas de nuestras capturas.
-            </p>
-          </div>
-        </div>
-
-        <!-- Screenshot Owl Carousel -->
-        <div id="screenshot-carousel" class="owl-carousel">
-          <div class="item col-md-3 col-sm-3 wow fadeInUp" data-wow-delay="0.9s">
-            <a href="assets/images/screenshot-img1.jpg" class="image-popup">
-              <img src="./assets/images/screenshot-img1.jpg" class="img-responsive" alt="screenshot" />
-            </a>
-          </div>
-
-          <div class="item col-md-3 col-sm-3 wow fadeInUp" data-wow-delay="0.9s">
-            <a href="./assets/images/screenshot-img2.jpg" class="image-popup">
-              <img src="./assets/images/screenshot-img2.jpg" class="img-responsive" alt="screenshot" />
-            </a>
-          </div>
-
-          <div class="item col-md-3 col-sm-3 wow fadeInUp" data-wow-delay="0.9s">
-            <a href="./assets/images/screenshot-img3.jpg" class="image-popup">
-              <img src="./assets/images/screenshot-img3.jpg" class="img-responsive" alt="screenshot" />
-            </a>
-          </div>
-
-          <div class="assets/item col-md-3 col-sm-3 wow fadeInUp" data-wow-delay="0.9s">
-            <a href="./assets/images/screenshot-img4.jpg" class="image-popup">
-              <img src="./assets/images/screenshot-img4.jpg" class="img-responsive" alt="screenshot" />
-            </a>
-          </div>
-
-          <div class="item col-md-3 col-sm-3 wow fadeInUp" data-wow-delay="0.9s">
-            <a href="./assets/images/screenshot-img5.jpg" class="image-popup">
-              <img src="./assets/images/screenshot-img5.jpg" class="img-responsive" alt="screenshot" />
-            </a>
-          </div>
-
-          <div class="item col-md-3 col-sm-3 wow fadeInUp" data-wow-delay="0.9s">
-            <a href="./assets/images/screenshot-img6.jpg" class="image-popup">
-              <img src="./assets/images/screenshot-img6.jpg" class="img-responsive" alt="screenshot" />
-            </a>
-          </div>
-
-          <div class="item col-md-3 col-sm-3 wow fadeInUp" data-wow-delay="0.9s">
-            <a href="../assets/images/screenshot-img7.jpg" class="image-popup">
-              <img src="../assets/images/screenshot-img7.jpg" class="img-responsive" alt="screenshot" />
-            </a>
-          </div>
-
-          <div class="item col-md-3 col-sm-3 wow fadeInUp" data-wow-delay="0.9s">
-            <a href="../assets/images/screenshot-img8.jpg" class="image-popup">
-              <img src="../assets/images/screenshot-img8.jpg" class="img-responsive" alt="screenshot" />
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Pricing Section -->
-
-  <section id="pricing">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12 col-sm-12">
-          <div class="section-title">
-            <h1>Precios</h1>
-            <hr />
-          </div>
-        </div>
-
-        <div class="wow fadeInUp col-md-4 col-sm-4" data-wow-delay="0.4s">
-          <div class="pricing-plan">
-            <div class="pricing-month">
-              <h2>$60.000</h2>
-            </div>
-            <div class="pricing-title">
-              <h3>Básico</h3>
-            </div>
-            <p>1 Usuario</p>
-            <p>Soporte ilimitado</p>
-            <p>3 meses</p>
-            <button class="btn btn-default section-btn">
-              Regístrate ahora
-            </button>
-          </div>
-        </div>
-
-        <div class="wow fadeInUp col-md-4 col-sm-4" data-wow-delay="0.6s">
-          <div class="pricing-plan">
-            <div class="pricing-month">
-              <h2>$120.000</h2>
-            </div>
-            <div class="pricing-title">
-              <h3>Business</h3>
-            </div>
-            <p>2 Usuarios</p>
-            <p>Soporte ilimitado</p>
-            <p>6 meses</p>
-            <button class="btn btn-default section-btn">
-              Regístrate ahora
-            </button>
-          </div>
-        </div>
-
-        <div class="wow fadeInUp col-md-4 col-sm-4" data-wow-delay="0.8s">
-          <div class="pricing-plan">
-            <div class="pricing-month">
-              <h2>$200.000</h2>
-            </div>
-            <div class="pricing-title">
-              <h3>Advanced</h3>
-            </div>
-            <p>5 Usuarios</p>
-            <p>Soporte ilimitado</p>
-            <p>1 año</p>
-            <button class="btn btn-default section-btn">
-              Regístrate ahora
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Newsletter Section -->
-
-  <section id="newsletter">
-    <div class="overlay"></div>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-offset-2 col-md-8 col-sm-12">
-          <div class="wow bounceIn section-title">
-            <h2>Suscríbete a nuestras noticias</h2>
-            <p class="wow fadeInUp" data-wow-delay="0.5s">
-              Así mantendrás actualizado de nuestras novedades, mejoras y todo
-              lo relacionado con STORM GPS.
-            </p>
-          </div>
-          <div class="wow fadeInUp newsletter-form" data-wow-delay="0.8s">
-            <form action="#" method="post">
-              <div class="col-md-8 col-sm-7">
-                <input name="email" type="email" class="form-control" id="email" placeholder="Tu correo" />
-              </div>
-              <div class="col-md-4 col-sm-5">
-                <input name="submit" type="submit" class="form-control" id="submit" value="Enviar" />
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer Section -->
-
-  <footer>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-8 col-sm-6">
-          <div class="wow fadeInUp footer-copyright" data-wow-delay="0.4s">
-            <p>Copyright &copy; 2023 Storm GPS</p>
-          </div>
-        </div>
-
-        <div class="col-md-4 col-sm-6">
-          <ul class="wow fadeInUp social-icon" data-wow-delay="0.8s">
-            <li><a href="#" class="fa fa-facebook"></a></li>
-            <li><a href="#" class="fa fa-twitter"></a></li>
-            <li><a href="#" class="fa fa-google-plus"></a></li>
-            <li><a href="#" class="fa fa-dribbble"></a></li>
-            <li><a href="#" class="fa fa-linkedin"></a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Modal Contact -->
-
-  <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content modal-popup">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-          <h2 class="modal-title">Formulario de contacto</h2>
-        </div>
-
-        <form action="#" method="post">
-          <input name="name" type="text" class="form-control" id="name" placeholder="Tu nombre" required />
-          <input name="email" type="email" class="form-control" id="email" placeholder="Correo" required />
-          <textarea name="message" rows="3" class="form-control" id="message" placeholder="Mensaje" required></textarea>
-          <input name="submit" type="submit" class="form-control" id="submit" value="Enviar mensaje" />
-        </form>
-      </div>
-    </div>
-  </div>
-
-  <!-- Back top -->
-
-  <a href="#" class="go-top"><i class="fa fa-angle-up"></i></a>
-
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    toggleBtn.onclick = function() {
+        dropDownMenu.classList.toggle('open')
+        const isOpen = dropDownMenu.classList.contains('open')
+        toggleBtnIcon.classList = isOpen ?
+            'fa-solid fa-xmark' :
+            'fa-solid fa-bars'
+    }
+    </script>
 </body>
 
 </html>
