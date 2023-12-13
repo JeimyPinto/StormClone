@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/> 
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/menu.css">
+    <title>Mapa de los padres</title>
+    <style type="text/css">
+        #map {
+            width: 900px;
+            height: 600px;
+        }
+    </style>
+</head>
+<body>
+    <input type="checkbox" id="check">
+    <label for="check">
+      <i class="fas fa-bars" id="btn"></i>
+      <i class="fas fa-times" id="cancel"></i>
+    </label>
+    <div class="sidebar">
+      <header>Menu</header>
+      <a href="#" class="active">
+        <i class="fas fa-qrcode"></i>
+        <span>Inicio</span>
+      </a>
+      <a href="#">
+        <i class="fas fa-link"></i>
+        <span>Atajos</span>
+      </a>
+      <a href="#">
+        <i class="fas fa-bell"></i>
+        <span>Notificaciones</span>
+      </a>
+      <a href="#">
+         <i class="fas fa-calendar"></i>
+        <span>Horarios</span>
+      </a>
+      <a href="#">
+        <i class="far fa-question-circle"></i>
+        <span>Ayuda</span>
+      </a>
+      <a href="#">
+        <i class="fas fa-sliders-h"></i>
+        <span>Ajustes</span>
+      </a>
+      <a href="./index.html" id="logout-link">
+        <i class="fas fa-sign-out-alt"></i>
+        <span>Salir</span>
+      </a>
+    </div>
+
+    <div id="map"></div>
+</body>
+    
+
+
+
+
+
+    <script type="text/javascript">
+        var map = L.map('map').setView([5.032606001778622, -75.45119078083742], 17);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        }).addTo(map);
+
+        var popup = L.popup()
+            .setLatLng([5.032606001778622, -75.45119078083742])
+            .setContent('Sena Manizales');
+
+        var marker = L.marker([5.032606001778622, -75.45119078083742]).bindPopup(popup).openPopup().addTo(map);
+
+        document.getElementById('logout-link').addEventListener('click', function (e) {
+          e.preventDefault(); // Prevenir que el enlace se ejecute inmediatamente
+      
+          // Mostrar un mensaje de confirmación antes de cerrar sesión
+          var confirmation = confirm('¿Estás seguro de que deseas cerrar sesión?');
+      
+          if (confirmation) {
+            // Si el usuario hace clic en "Aceptar," redirige a la página de inicio
+            window.location.href = './index.html';
+          } else {
+            // Si el usuario hace clic en "Cancelar," no hace nada
+            // El usuario permanecerá en la página actual
+          }
+        });
+      </script>
+</body>
+</html>
