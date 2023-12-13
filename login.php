@@ -38,8 +38,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- favicon import -->
-    <link rel="icon" href="assets/images/Storm.png" type="image/x-icon">
+    <!-- favicon -->
+    <link rel="icon" href="./assets/images/StormIcon.ico" type="image/x-icon">
+    <!-- fontawesome import -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="./assets/css/login.css">
     <title>STORM GPS</title>
 
@@ -49,7 +51,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     <section class="home">
         <div class="content">
-            <a href="#">STORM GPS</a>
+            <a href=""><img src="./images/stormgps.png" alt=""></a>
+
+            <a href="index.html">STORM GPS</a>
             <h2>Bienvenidos</h2>
             <pre>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -65,8 +69,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </div>
 
         <div class="signin">
+
             <h2>Inicio de sesión</h2>
-            <form class="signin" action="" method="post">
+            <form action="" method="post">
 
                 <div class="input">
                     <input class="input1" type="email" placeholder="Correo" name="email" required>
@@ -74,7 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </div>
 
                 <div class="input">
-                    <input type="password" placeholder="Contraseña" name="password" required>
+                    <input class="input1" type="password" placeholder="Contraseña" name="password" required>
                     <i class="fa-solid fa-lock"></i>
                 </div>
 
